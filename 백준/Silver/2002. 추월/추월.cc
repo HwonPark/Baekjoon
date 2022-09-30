@@ -18,25 +18,20 @@ int main() {
 	string input;
 	int out[1000];
 	int count = 0;
-	map<int, string> car;
+	map<string, int> car;
 	map<int, string>::iterator iter;
 
 	cin >> n;
 
 	for (int i = 1; i <= n; i++) {
 		cin >> input;
-		car[i] = input;
+		car[input] = i;
 	}
 
 	for (int i = 1; i <= n; i++) {
 		cin >> input;
 
-		for (iter = car.begin(); iter != car.end(); iter++) {
-			if (iter->second == input) {
-				out[i] = iter->first;
-				break;
-			}
-		}
+		out[i] = car[input];
 	}
 
 	for (int i = n; i > 0; i--) {
